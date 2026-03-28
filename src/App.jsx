@@ -2,7 +2,7 @@ import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Quiz from "./Quiz";
 import Result from "./Result";
-import "./app.css"; // Make sure this is imported
+import "./App.css"; 
 
 export default function App() {
   const [score, setScore] = useState(0);
