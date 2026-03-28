@@ -1,71 +1,98 @@
-/* App container */
-.app-container {
+/* app.css */
+
+/* Quiz page container */
+.quiz-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   min-height: 100vh;
-  font-family: Arial, sans-serif;
+  padding: 20px;
   background-color: #f9f9f9;
+}
+
+/* Card for the quiz */
+.quiz-card {
+  background-color: #fff;
+  padding: 30px 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 500px;
+}
+
+/* Question heading */
+.question-heading {
+  color: black; /* ensures it’s black */
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+/* Question text */
+.question-text {
+  font-size: 18px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Options container */
+.options-container {
   display: flex;
   flex-direction: column;
+  gap: 10px;
+  margin-bottom: 25px;
 }
 
-/* Navbar */
-.navbar {
-  background-color: #1d4ed8;
-  color: white;
-  padding: 16px 24px;
-  display: flex;             /* horizontal layout */
-  gap: 24px;                 /* space between links */
-  justify-content: center;   /* center links horizontally */
-  font-weight: bold;
-}
-
-.navbar a {
-  color: white;
-  text-decoration: none;
-  font-size: 16px;
-}
-
-.navbar a:hover {
-  text-decoration: underline;
-}
-
-/* Main content */
-.main-content {
-  flex-grow: 1;
-  padding: 20px;
-}
-
-/* Center container for pages like Quiz, Result, Home */
-.centered-container {
+/* Option label */
+.option-label {
   display: flex;
-  justify-content: center;  /* horizontal centering */
-  align-items: center;      /* vertical centering */
-  min-height: 80vh;         /* take most of the viewport height */
-  flex-direction: column;   /* stack content vertically */
-  text-align: center;
+  align-items: center;
+  font-size: 16px;
+  color: #333;
+  cursor: pointer;
 }
 
-/* Main heading */
-h1 {
-  font-size: 36px;
-  font-weight: bold;
-  color: #000000; /* black for visibility */
-  margin-bottom: 24px;
+/* Buttons container */
+.buttons-container {
+  display: flex;
+  justify-content: space-between;
 }
 
-/* Quiz question heading (e.g., "Question 1 of 5") */
-.centered-container h2 {
-  color: #000000;  /* black */
-  font-size: 24px;
-  margin-bottom: 16px;
+/* Buttons styling */
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
 }
 
-/* Optional: style Quiz card */
-.quiz-card {
-  background-color: #ffffff;
-  border: 1px solid #e5e4e7;
-  border-radius: 12px;
-  padding: 20px;
-  max-width: 500px;
-  width: 100%;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+/* Gray button (previous) */
+.btn-gray {
+  background-color: #d1d5db;
+  color: #000;
+}
+
+.btn-gray:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Blue button (next/submit) */
+.btn-blue {
+  background-color: #3b82f6;
+  color: #fff;
+}
+
+.btn-blue:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-blue:hover:not(:disabled) {
+  background-color: #2563eb;
+}
+
+.btn-gray:hover:not(:disabled) {
+  background-color: #9ca3af;
 }
