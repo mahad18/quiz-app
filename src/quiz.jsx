@@ -1,3 +1,4 @@
+// Quiz.jsx
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -19,11 +20,12 @@ export default function Quiz({ score, setScore }) {
     const newAnswers = [...answers];
     newAnswers[current] = selected;
     setAnswers(newAnswers);
-    setSelected(""); // reset selection
+    setSelected("");
 
-    if (current < questions.length - 1) setCurrent(current + 1);
-    else {
-      // Calculate final score
+    if (current < questions.length - 1) {
+      setCurrent(current + 1);
+    } else {
+      // calculate final score
       const finalScore = questions.reduce(
         (acc, q, idx) => (q.answer === newAnswers[idx] ? acc + 1 : acc),
         0
@@ -41,16 +43,16 @@ export default function Quiz({ score, setScore }) {
   };
 
   return (
-    <div className="flex flex-col items-center p-6 pt-10 min-h-screen">
-      <div className="w-full max-w-xl bg-white p-6 rounded shadow">
-        <h2 className="text-2xl font-bold mb-4">
+    <div className="quiz-container">
+      <div className="quiz-card">
+        <h2 className="question-heading">
           Question {current + 1} of {questions.length}
         </h2>
-        <p className="mb-4">{questions[current].question}</p>
+        <p className="question-text">{questions[current].question}</p>
 
-        <div className="flex flex-col space-y-2 mb-4">
+        <div className="options-container">
           {questions[current].options.map((opt) => (
-            <label key={opt} className="flex items-center space-x-2">
+            <label key={opt} className="option-label">
               <input
                 type="radio"
                 name="option"
@@ -58,24 +60,16 @@ export default function Quiz({ score, setScore }) {
                 checked={selected === opt}
                 onChange={(e) => setSelected(e.target.value)}
               />
-              <span>{opt}</span>
+              {opt}
             </label>
           ))}
         </div>
 
-        <div className="flex justify-between">
-          <button
-            onClick={handlePrev}
-            disabled={current === 0}
-            className="px-4 py-2 rounded bg-gray-300 hover:bg-gray-400 disabled:opacity-50"
-          >
+        <div className="buttons-container">
+          <button onClick={handlePrev} disabled={current === 0} className="btn btn-gray">
             Previous
           </button>
-          <button
-            onClick={handleNext}
-            disabled={!selected}
-            className="px-4 py-2 rounded bg-blue-500 text-white hover:bg-blue-600 disabled:opacity-50"
-          >
+          <button onClick={handleNext} disabled={!selected} className="btn btn-blue">
             {current === questions.length - 1 ? "Submit" : "Next"}
           </button>
         </div>
